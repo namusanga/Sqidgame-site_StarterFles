@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squid Game Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/favicon.jpg" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body onresize="redirect404()">
+    <div class="container">
+        <nav>
+            <img src="./img/allshapes.png" alt="allshapes">
+            
+            <!-- <a href="index.html"><img  class="squidgamelogo"  src="./img/logo.png" alt="squid-game-font" border="0"></a> -->
+    
+        </nav>
+
+        <div class="leftsec" >
+            <h1 >Squid Game</h1>
+            <div style="background-color: transparent;" >
+                <img  src="./img/trisqua.svg" alt="" >
+                <p>
+                    Once you start the game, there's no turning back. The winner is alone, the loseronly faces death.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="middle-sec">
+            <img src="./img/maiddlesec.png" alt="Gunman"  style="width: 80%;height: auto;" data-speed="2" class="move">
+            <img src="./img/mainguy.png" style="position: absolute;right: 0;margin-top: 20rem;"data-speed="-2" class="move">
+
+        </div>
+
+        <div class="rightsec" >
+            <img src="./img/workes.png" alt="workers"
+            style="margin-bottom: 15rem;position: absolute;"
+            >
+
+            <div class="shapesgame" >
+                <div style="
+                width: 70px;
+                  height: 70px;
+                  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+                  background: #FD4388;">
+
+            </div>
+            <div style="  width: 70px;
+                        height: 70px;
+                clip-path: circle(50% at 50% 50%);
+                background: #FD4388;
+                border-radius: 50%">
+                </div>
+                <div style=" 
+                
+                width: 50px;
+                height: 50px;
+                background-color: #fff;
+                transform: rotate(90deg);
+                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                ">
+                </div>
+                
+            </div>
+            <li><a  class="effect-one ">Start New Game</a></li>
+
+        </div>
+
+        <footer>
+            <ul>
+                <a class="effect-one" >About</a>
+                <a class="effect-one" >Trailer</a>
+                <a class="effect-one" >Games</a>
+                <a class="effect-one" >Actors</a>
+            </ul>
+            <p class="effect-one" >
+                Start New Game<i class='bx bx-play'></i>
+            </p>
+
+            <ul>
+                <a class="effect-one"  >Season1</a>
+                <a class="effect-one" >2021</a>
+                <a  class="effect-one" style="color: #229794;"><i class='bx bxs-star' style="color: #229794;"></i>9.8</a>
+            </ul>
+
+
+        </footer>
+    </div>
+    
+    
+   <script defer >
+       document.addEventListener('mousemove', move);
+function move(e){
+    this.querySelectorAll('.move').forEach(layer =>{
+        const speed = layer.getAttribute('data-speed')
+
+        const x = (window.innerWidth - e.pageX*speed)/120
+        const y = (window.innerHeight - e.pageY*speed)/120
+
+        layer.style.transform = `translateX(${x}px) translateY(${y}px)`
+    })
+}
+            
+const isMobile = window.matchMedia("only screen and (max-width: 900px)").matches;
+function redirect404() {
+    
+    if (window.innerWidth<=900) {
+      window.location.replace("./404page/404.html")
+
+    }
+}
+redirect404();
+window.addEventListener( 'resize', redirect404, false );
+   
+</script>
+</body>
+
+</html>
